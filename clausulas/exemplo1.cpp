@@ -5,6 +5,7 @@
 # include <omp.h>
 
 int  main(int argc, char *argv[]){
+    // Aqui, a variável num é criada
     int num = 0;
 
     printf("Serial %d \n", num);
@@ -15,9 +16,10 @@ int  main(int argc, char *argv[]){
     // que cada uma das 4 threads terá uma variável "num" não compartilhada.
     #pragma omp parallel private(num)
     {
-        num = 0; // Para evitar erro de indefinição, a variável "num" é redefinida como 0
-        // (mas também poderia ser uma variável local, criada como "int num = 0;" dentro da
-        // região paralela)
+        // Na região paralela, é criada uma cópia local da variável privada para cada thread.
+        // Como estas cópias começam com valores indefinidos, é necessário definir a variável "num"
+        // como 0 novamente para evitar erro de indefinição
+        num = 0;
 
         int id = omp_get_thread_num();
         num = num + id;

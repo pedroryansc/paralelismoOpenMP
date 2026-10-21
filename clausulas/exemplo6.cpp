@@ -4,7 +4,7 @@
 # include <omp.h>
 
 int main(int argc, char *argv[]){
-    int num = 0;
+    int num = 3;
 
     printf("Serial %d \n", num);
 
