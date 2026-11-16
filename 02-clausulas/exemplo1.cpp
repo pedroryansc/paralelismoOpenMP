@@ -1,4 +1,3 @@
-// Comando para compilar o programa com o OpenMP: g++ (ou "gcc") -fopenmp <nome-arquivo>.cpp -o <local-e-nome-arquivo>
 # include <windows.h>
 # include <assert.h>
 # include <stdio.h>
