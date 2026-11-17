@@ -12,7 +12,7 @@ int  main(int argc, char *argv[]){
     omp_set_num_threads(4);
 
     // A cláusula private define que a variável "num" é privada, ou seja,
-    // que cada uma das 4 threads terá uma variável "num" não compartilhada.
+    // que cada uma das 4 threads terá uma cópia não compartilhada da variável "num".
     #pragma omp parallel private(num)
     {
         // Na região paralela, é criada uma cópia local da variável privada para cada thread.

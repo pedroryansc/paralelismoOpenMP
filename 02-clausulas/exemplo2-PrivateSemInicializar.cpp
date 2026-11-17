@@ -14,8 +14,12 @@ int main(int argc, char *argv[]){
     {
         // Aqui, o valor de "num" fica indefinido e, portanto, propenso a erro
         int id = omp_get_thread_num();
+
         printf("id = %d \n", id);
         printf("num = %d \n", num);
+
+        num = id + num;
+
         printf("Paralela - Thread Id = %d e (num + id) = %d \n", id, num);
     }
 

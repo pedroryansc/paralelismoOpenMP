@@ -15,8 +15,9 @@ int main(int argc, char *argv[]){
     {
         int id = omp_get_thread_num();
 
-        // Caso o programa não funcionasse, deveria ser adicionado nesta linha a diretiva "#pragma omp atomic"
-        // A diretiva "pragma omp atomic" reforça que uma ou mais intruções devem ser feitas por uma thread por vez
+        // Já que, em algumas execuções, no fim num era igual a 7 (ao invés de 8), foi adicionada a diretiva "#pragma omp atomic"
+        // A diretiva "pragma omp atomic" reforça que uma ou mais intruções devem ser feitas por uma thread por vez (atomicidade)
+        #pragma omp atomic
         num = num + 1;
         
         printf("Paralela - Thread id = %d e (num + 1) = %d \n", id, num);

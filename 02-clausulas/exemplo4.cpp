@@ -15,6 +15,7 @@ int main(int argc, char *argv[]){
     {
         int id = omp_get_thread_num();
 
+        #pragma omp atomic
         num = num + id;
         
         printf("Paralela - Thread id = %d e (num + id) = %d \n", id, num);
