@@ -10,7 +10,8 @@ int main(int argc, char *argv[]){
     int t = omp_get_max_threads();
     printf("T = %d \n", t);
 
-    // A região paralela só é executa se a quantidade de núcleos do processador >= 4
+    // A região paralela só é executa paralelamente (ou seja, com várias threads) se a quantidade de núcleos do processador >= 4
+    // Caso contrário, o trecho é executado de forma serial, ou seja, com apenas uma thread
     #pragma omp parallel if(t >= 4)
     {
         int id = omp_get_thread_num();

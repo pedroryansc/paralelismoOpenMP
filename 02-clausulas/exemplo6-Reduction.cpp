@@ -11,6 +11,7 @@ int main(int argc, char *argv[]){
     omp_set_num_threads(4);
 
     // Define que será feito uma soma com o valor de "num" de cada thread ao final da execução da região paralela
+    // No caso da soma (+), cada cópia de "num" é inicializada como 0, ao invés de assumir o valor definido anteriormente
     #pragma omp parallel reduction(+:num)
     {
         int id = omp_get_thread_num();
